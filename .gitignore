@@ -12,3 +12,6 @@ keystore/
 keys/
 
 *.log
+
+# Local secret material — lives outside the repo, never commit
+hidden_files/
