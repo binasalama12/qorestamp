@@ -14,60 +14,16 @@ import {
   type Hex,
 } from "viem";
 
+import { registryContractAbi } from "../../contracts/QoreStampRegistry.artifact.js";
+
 /** Public EVM JSON-RPC endpoint for qorechain-diana (chain id 9800). */
 export const TESTNET_EVM_RPC_URL = "https://evm-testnet.qore.host";
 export const TESTNET_REST_URL = "https://api-testnet.qore.host";
 export const TESTNET_RPC_URL = "https://rpc-testnet.qore.host";
 export const TESTNET_EVM_CHAIN_ID = 9800;
 
-export const registryAbi = [
-  {
-    type: "function",
-    name: "stamp",
-    stateMutability: "nonpayable",
-    inputs: [
-      { name: "digest", type: "bytes32" },
-      { name: "label", type: "string" },
-      { name: "pqcKeyHash", type: "bytes32" },
-      { name: "nativeTxHash", type: "string" },
-    ],
-    outputs: [],
-  },
-  {
-    type: "function",
-    name: "getStamp",
-    stateMutability: "view",
-    inputs: [{ name: "digest", type: "bytes32" }],
-    outputs: [
-      { name: "stamper", type: "address" },
-      { name: "label", type: "string" },
-      { name: "pqcKeyHash", type: "bytes32" },
-      { name: "nativeTxHash", type: "string" },
-      { name: "timestamp", type: "uint256" },
-    ],
-  },
-  {
-    type: "function",
-    name: "isStamped",
-    stateMutability: "view",
-    inputs: [{ name: "digest", type: "bytes32" }],
-    outputs: [{ name: "", type: "bool" }],
-  },
-  {
-    type: "function",
-    name: "stampCount",
-    stateMutability: "view",
-    inputs: [],
-    outputs: [{ name: "", type: "uint256" }],
-  },
-  {
-    type: "function",
-    name: "digestAt",
-    stateMutability: "view",
-    inputs: [{ name: "index", type: "uint256" }],
-    outputs: [{ name: "", type: "bytes32" }],
-  },
-] as const;
+/** The registry ABI, taken from the compiled contract artifact. */
+export const registryAbi = registryContractAbi;
 
 export interface OnChainStamp {
   stamper: Address;

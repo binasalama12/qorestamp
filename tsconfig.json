@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "noEmit": true,
     "useDefineForClassFields": true,
-    "types": ["vite/client"]
+    "types": ["vite/client", "node"]
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src", "test", "contracts", "scripts", "vite.config.ts"]
 }

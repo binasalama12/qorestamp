@@ -1,0 +1,195 @@
+/**
+ * Compiled artifact for `contracts/QoreStampRegistry.sol`.
+ *
+ * Generated with solc 0.8.38+commit.1835d247.Emscripten.clang (--optimize, 200 runs) by
+ * scripts/compile-registry.mjs. Regenerate after editing the contract.
+ * The ABI is exported as a `const` tuple so viem can infer typed calls.
+ */
+import type { Hex } from "viem";
+
+export const registryContractAbi = [
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "digest",
+        "type": "bytes32"
+      }
+    ],
+    "name": "AlreadyStamped",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "EmptyLabel",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "EmptyNativeTxHash",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "digest",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "stamper",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "label",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "pqcKeyHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "nativeTxHash",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "name": "Stamped",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "index",
+        "type": "uint256"
+      }
+    ],
+    "name": "digestAt",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "digest",
+        "type": "bytes32"
+      }
+    ],
+    "name": "getStamp",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "stamper",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "label",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "pqcKeyHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "nativeTxHash",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "digest",
+        "type": "bytes32"
+      }
+    ],
+    "name": "isStamped",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "digest",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "label",
+        "type": "string"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "pqcKeyHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "nativeTxHash",
+        "type": "string"
+      }
+    ],
+    "name": "stamp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "stampCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+] as const;
+
+export const registryBytecode: Hex = "0x6080604052348015600e575f5ffd5b506107e58061001c5f395ff3fe608060405234801561000f575f5ffd5b5060043610610055575f3560e01c806311bcc90b146100595780633974428f1461007f5780636f2ad1cb14610087578063bd33dca81461009c578063d0eca23d146100d0575b5f5ffd5b61006c610067366004610477565b6100f4565b6040519081526020015b60405180910390f35b60015461006c565b61009a6100953660046104d3565b610118565b005b6100c06100aa366004610477565b5f90815260208190526040902060040154151590565b6040519015158152602001610076565b6100e36100de366004610477565b61030d565b604051610076959493929190610583565b5f60018281548110610108576101086105d1565b905f5260205f2001549050919050565b5f8490036101395760405163cccf65f560e01b815260040160405180910390fd5b5f81900361015a57604051633ce1e4b560e21b815260040160405180910390fd5b5f868152602081905260409020600401541561019057604051631d00a96560e11b81526004810187905260240160405180910390fd5b6040518060a00160405280336001600160a01b0316815260200186868080601f0160208091040260200160405190810160405280939291908181526020018383808284375f92019190915250505090825250602080820186905260408051601f860183900483028101830182528581529201919085908590819084018382808284375f9201829052509385525050426020938401525088815280825260409020825181546001600160a01b0319166001600160a01b0390911617815590820151600182019061025f9082610688565b50604082015160028201556060820151600382019061027e9082610688565b50608091909101516004909101556001805480820182555f919091527fb10e2d527612073b26eecdfd717e6a320cf44b4afac2b0732d9fcbe2b7fa0cf601869055604051339087907f1e6d2ff3dcb667bf1bb067211fdc45aa9c23e3215bb6abaf8398de9a6b366bd1906102fd9089908990899089908990429061076f565b60405180910390a3505050505050565b5f60605f60605f5f5f5f8881526020019081526020015f209050805f015f9054906101000a90046001600160a01b031681600101826002015483600301846004015483805461035b906105f9565b80601f0160208091040260200160405190810160405280929190818152602001828054610387906105f9565b80156103d25780601f106103a9576101008083540402835291602001916103d2565b820191905f5260205f20905b8154815290600101906020018083116103b557829003601f168201915b505050505093508180546103e5906105f9565b80601f0160208091040260200160405190810160405280929190818152602001828054610411906105f9565b801561045c5780601f106104335761010080835404028352916020019161045c565b820191905f5260205f20905b81548152906001019060200180831161043f57829003601f168201915b50505050509150955095509550955095505091939590929450565b5f60208284031215610487575f5ffd5b5035919050565b5f5f83601f84011261049e575f5ffd5b50813567ffffffffffffffff8111156104b5575f5ffd5b6020830191508360208285010111156104cc575f5ffd5b9250929050565b5f5f5f5f5f5f608087890312156104e8575f5ffd5b86359550602087013567ffffffffffffffff811115610505575f5ffd5b61051189828a0161048e565b90965094505060408701359250606087013567ffffffffffffffff811115610537575f5ffd5b61054389828a0161048e565b979a9699509497509295939492505050565b5f81518084528060208401602086015e5f602082860101526020601f19601f83011685010191505092915050565b6001600160a01b038616815260a0602082018190525f906105a690830187610555565b85604084015282810360608401526105be8186610555565b9150508260808301529695505050505050565b634e487b7160e01b5f52603260045260245ffd5b634e487b7160e01b5f52604160045260245ffd5b600181811c9082168061060d57607f821691505b60208210810361062b57634e487b7160e01b5f52602260045260245ffd5b50919050565b601f821115610683578282111561068357805f5260205f20601f840160051c602085101561065c57505f5b90810190601f840160051c035f5b8181101561067f575f8382015560010161066a565b5050505b505050565b815167ffffffffffffffff8111156106a2576106a26105e5565b6106b6816106b084546105f9565b84610631565b6020601f8211600181146106e8575f83156106d15750848201515b5f19600385901b1c1916600184901b178455610740565b5f84815260208120601f198516915b8281101561071757878501518255602094850194600190920191016106f7565b508482101561073457868401515f19600387901b60f8161c191681555b505060018360011b0184555b5050505050565b81835281816020850137505f828201602090810191909152601f909101601f19169091010190565b608081525f61078260808301888a610747565b866020840152828103604084015261079b818688610747565b91505082606083015297965050505050505056fea26469706673582212201a62cf25c595a74a4a9972be2f40d9de2ede3a3900cdf9ade331e2fb6e9d637964736f6c63430008260033";
