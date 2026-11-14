@@ -59,6 +59,34 @@ node scripts/compile-registry.mjs   # regenerate the artifact after edits
 npm run deploy:registry             # refuses to run on any chain id != 9800
 ```
 
+## Deployment & addresses
+
+| Item | Value |
+| --- | --- |
+| Network | QoreChain testnet `qorechain-diana` (EVM chain id 9800) |
+| EVM JSON-RPC | https://evm-testnet.qore.host |
+| REST (LCD) | https://api-testnet.qore.host |
+| Registered account (native) | `qor1aphlf7rdlyqa2qlgq0e7hwyk90vh3s7fvlruxn` |
+| Registered account (EVM) | `0xe86ff4f86df901d503e803f3ebb8962bd978c3c9` |
+| QoreStampRegistry | _TBD — pending deploy (see below)_ |
+| Hybrid anchor tx | _TBD — first stamp, via QoreX_ |
+
+The native and EVM addresses above are the same account (same 20 bytes,
+registered for **Build Before Q-Day** with QoreX connected). Note the native
+address contains an `l` before `ruxn` that is easy to misread as `1` —
+bech32's data charset never contains `1`; the spelling above is the
+canonical one (it resolves on the REST API and matches the EVM bytes).
+
+Deploy is one command once a funded deployer key is in `.env`
+(`QORE_EVM_PRIVATE_KEY`, gitignored — the key for the registered account
+lives in QoreX and never leaves the user's device, so the deploy is either
+run locally by the account owner or from a separate funded deployer
+account):
+
+```bash
+npm run deploy:registry   # prints the address → set VITE_QORESTAMP_REGISTRY
+```
+
 ## Layout
 
 | Path | What |

@@ -1,5 +1,14 @@
 node_modules/
 dist/
+
+# Secrets / local env — never commit keys or funded-account material.
 .env
-.env.local
+.env.*
+!.env.example
+*.key
+*.pem
+*.keystore
+keystore/
+keys/
+
 *.log

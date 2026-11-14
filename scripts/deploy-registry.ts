@@ -47,6 +47,14 @@ async function main(): Promise<void> {
   }
   console.log(`deployer: ${account.address}`);
 
+  const balance = await client.publicClient.getBalance({ address: account.address });
+  console.log(`balance:  ${balance} wei`);
+  if (balance === 0n) {
+    throw new Error(
+      "Deployer account has no funds on diana. Fund it via the dashboard faucet first.",
+    );
+  }
+
   console.log("\nDeploying QoreStampRegistry…");
   const deployHash = await deployContract(wallet, {
     abi: registryContractAbi,
