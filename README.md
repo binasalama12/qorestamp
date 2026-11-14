@@ -68,8 +68,19 @@ npm run deploy:registry             # refuses to run on any chain id != 9800
 | REST (LCD) | https://api-testnet.qore.host |
 | Registered account (native) | `qor1aphlf7rdlyqa2qlgq0e7hwyk90vh3s7fvlruxn` |
 | Registered account (EVM) | `0xe86ff4f86df901d503e803f3ebb8962bd978c3c9` |
-| QoreStampRegistry | _TBD — pending deploy (see below)_ |
+| QoreStampRegistry | `0xbbfcc2956dc59fc38ffa9ac154f3ee81b1d64832` |
+| Registry deploy tx | `0x68ca922c2aef08bf39c12a4ed6877ff1e9796bef5d7195f58469bf86576dc932` |
+| Deployer account (native) | `qor1vrcg2qyv369nrd4vaxtmxppmxzr6cnl8m4s6jw` |
+| Deployer account (EVM) | `0x60f085008C8E8b31b6aCE997B3043B3087AC4fe7` |
 | Hybrid anchor tx | _TBD — first stamp, via QoreX_ |
+
+The registry was deployed 2026-11-14 from the deployer account above (a
+dedicated testnet wallet, separate from the registered account). Before the
+deploy, the deployer registered its ML-DSA-87 key on chain
+(`/qorechain.pqc.v1.MsgRegisterPQCKeyV2`, possession proven) and opened an
+EVM authorisation window (`/qorechain.pqc.v1.MsgOpenEVMWindow`), as the EVM
+lane requires — see `scripts/register-pqc.ts`. The deployment was verified
+on chain immediately after broadcast (`stampCount` read back as 0).
 
 The native and EVM addresses above are the same account (same 20 bytes,
 registered for **Build Before Q-Day** with QoreX connected). Note the native
