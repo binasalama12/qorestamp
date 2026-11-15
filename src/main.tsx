@@ -1,17 +1,11 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-import { QoreChainProvider } from "@qorechain/react";
-
 import { App } from "./App.js";
 
-// Endpoints come from Vite env vars (VITE_-prefixed), defaulting to the
-// public qorechain-diana testnet endpoints. The REST API sends no CORS
-// headers, so in dev the app reaches it through the /lcd Vite proxy.
-const REST_URL = import.meta.env.VITE_QORE_REST_URL ?? "/lcd";
-const EVM_RPC_URL =
-  import.meta.env.VITE_QORE_EVM_RPC_URL ?? "https://evm-testnet.qore.host";
-
+// The public demo is read-only: verification is plain eth_call reads against
+// the public qorechain-diana EVM endpoint plus local ML-DSA-87 cryptography,
+// so no wallet provider is needed here.
 const container = document.getElementById("root");
 if (!container) {
   throw new Error("Root element #root not found");
@@ -19,13 +13,6 @@ if (!container) {
 
 createRoot(container).render(
   <React.StrictMode>
-    <QoreChainProvider
-      config={{
-        network: "testnet",
-        endpoints: { rest: REST_URL, evmRpc: EVM_RPC_URL },
-      }}
-    >
-      <App />
-    </QoreChainProvider>
+    <App />
   </React.StrictMode>,
 );

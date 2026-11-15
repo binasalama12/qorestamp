@@ -12,6 +12,8 @@ export default defineConfig(({ mode }) => {
     "/lcd": { target, changeOrigin: true, rewrite: (p: string) => p.replace(/^\/lcd/, "") },
   };
   return {
+    // VITE_BASE is set only for the GitHub Pages build (/qorestamp/).
+    base: env.VITE_BASE || "/",
     plugins: [react()],
     server: { port: 5173, proxy },
     preview: { proxy },

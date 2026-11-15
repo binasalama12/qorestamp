@@ -120,6 +120,31 @@ export async function readStamp(
   };
 }
 
+/** Digest of the stamp stored at `index` (0-based, in stamping order). */
+export async function readDigestAt(
+  registryAddress: Address,
+  index: number,
+  rpcUrl: string = TESTNET_EVM_RPC_URL,
+  fetchImpl: typeof fetch = fetch,
+): Promise<Hex> {
+  const data = encodeFunctionData({
+    abi: registryAbi,
+    functionName: "digestAt",
+    args: [BigInt(index)],
+  });
+  const raw = await rpcCall<Hex>(
+    rpcUrl,
+    "eth_call",
+    [{ to: registryAddress, data }, "latest"],
+    fetchImpl,
+  );
+  return decodeFunctionResult({
+    abi: registryAbi,
+    functionName: "digestAt",
+    data: raw,
+  }) as Hex;
+}
+
 /** Total stamps recorded in the registry. */
 export async function readStampCount(
   registryAddress: Address,

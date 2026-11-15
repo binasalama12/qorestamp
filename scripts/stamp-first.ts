@@ -37,8 +37,8 @@ import {
   createEvmClient,
   evmAccountFromPrivateKey,
   writeContract,
-  type Hex,
 } from "@qorechain/evm";
+import type { Hex } from "viem";
 
 import {
   attestationDigestBytes,
@@ -251,6 +251,8 @@ async function main(): Promise<void> {
       abi: registryContractAbi,
       functionName: "stamp",
       args: [digestHex, attestation.agentLabel, keyHashHex, nativeTxHash],
+      chain: null,
+      account: evmAccount,
     });
     console.log(`stamp evm tx hash: ${evmTxHash}`);
     const receipt = await client.publicClient.waitForTransactionReceipt({

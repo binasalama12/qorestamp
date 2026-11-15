@@ -9,6 +9,10 @@ later from public data alone — no account, no wallet, no trust in the agent.
 Built for **Build Before Q-Day — Quantum Pass**. Scaffolded from the official
 `create-qorechain-dapp@0.14.0` fullstack-web template.
 
+**Live demo:** https://binasalama12.github.io/qorestamp/ — the page
+re-verifies the first stamp live in your browser (registry reads via
+`eth_call` + a local ML-DSA-87 signature check), straight from public data.
+
 ## How it works
 
 1. **Attest.** The agent builds an attestation: a canonical record binding
