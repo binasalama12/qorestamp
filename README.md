@@ -121,6 +121,13 @@ npm run deploy:registry   # prints the address → set VITE_QORESTAMP_REGISTRY
 - The production bundle is large (~3 MB) because it includes the SDK's PQC
   cryptography; code-splitting is a known post-fest improvement.
 
+## Submission
+
+Submitted to QoreChain "Build Before Q-Day" (Quantum Pass category) —
+project page: https://build.qorechain.io/p/qorestamp (submission saved
+20 Nov 2026; the saved project page is the final submission at the
+2 Dec 2026 23:59 UTC deadline).
+
 ## License
 
 MIT — see `LICENSE`. Template portions © QoreChain, Apache-2.0
